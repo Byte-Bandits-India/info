@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xylozen Tech - Quick Portal</title>
+  <meta name="description" content="Access Xylozen Tech services, official documents, company profile, and contact support." />
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS v3 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'card': '0 8px 20px -4px rgba(0, 0, 0, 0.08), 0 4px 8px -4px rgba(0, 0, 0, 0.04)',
+            'card-hover': '0 16px 28px -4px rgba(0, 0, 0, 0.14), 0 8px 12px -4px rgba(0, 0, 0, 0.06)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Background Watermark Pattern */
+    .bg-watermark {
+      background-color: #f7f4ed;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(240, 232, 220, 0.6) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(235, 225, 210, 0.6) 0%, transparent 45%);
+    }
+
+    /* Ambient card shine effect on hover */
+    .card-shine {
+      position: relative;
+    }
+    .card-shine::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.75s ease;
+      pointer-events: none;
+    }
+    .card-shine:hover::after {
+      left: 150%;
+    }
+  </style>
+</head>
+<body class="bg-watermark min-h-screen text-slate-800 antialiased font-sans flex items-center justify-center p-4 sm:p-6 selection:bg-blue-500 selection:text-white">
+
+  <!-- Ambient decorative vector watermark matching original screenshot background -->
+  <div class="fixed inset-0 pointer-events-none opacity-30 overflow-hidden z-0" aria-hidden="true">
+    <svg class="absolute -top-24 -left-24 w-[500px] h-[500px] text-amber-200/40" viewBox="0 0 200 200" fill="currentColor">
+      <path d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C87,14.6,81.4,29.1,73.1,41.9C64.7,54.7,53.7,65.7,40.5,72.9C27.4,80.1,12.2,83.5,-2.9,88.5C-18,93.5,-36.1,100.1,-49.6,93.4C-63.1,86.6,-72,66.6,-78.3,47.8C-84.6,29,-88.3,11.5,-85.7,-4.9C-83.1,-21.3,-74.2,-36.6,-62.8,-47.9C-51.5,-59.2,-37.7,-66.6,-23.7,-73.9C-9.8,-81.2,4.3,-88.5,18.8,-88.1C33.3,-87.7,48.2,-79.6,44.7,-76.4Z" transform="translate(100 100)" />
+    </svg>
+    <svg class="absolute -bottom-20 -right-20 w-[600px] h-[600px] text-orange-200/35" viewBox="0 0 200 200" fill="currentColor">
+      <path d="M41.7,-68.8C54.4,-63.3,65.4,-53.4,73.4,-41.2C81.4,-29,86.4,-14.5,85.6,-0.5C84.7,13.6,78.1,27.1,69.7,38.6C61.4,50,51.3,59.3,39.6,66.4C27.8,73.5,13.9,78.4,-0.4,79.1C-14.7,79.8,-29.4,76.3,-41.7,68.9C-54,61.4,-63.9,50,-70.7,37.2C-77.5,24.4,-81.1,10.2,-80.6,-3.9C-80.1,-18,-75.4,-32,-66.9,-43.3C-58.3,-54.6,-45.9,-63.2,-32.8,-68.5C-19.6,-73.8,-5.8,-75.8,7.2,-77.2C20.2,-78.6,30.3,-79.4,41.7,-68.8Z" transform="translate(100 100)" />
+    </svg>
+  </div>
+
+  <!-- Main Container: Centered vertically and horizontally -->
+  <main class="relative z-10 w-full max-w-[415px] mx-auto flex flex-col items-center my-auto">
+    
+    <!-- Top Branding / Header -->
+    <header class="text-center mb-5">
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">Xylozen Tech</h1>
+      <p class="text-xs sm:text-sm text-stone-500 mt-1 font-medium">Services, Documents & Direct Navigation</p>
+    </header>
+
+    <!-- Cards Stack: Matches exact rounded radius (16px), large icons, and colors from screenshot -->
+    <section class="w-full flex flex-col gap-3.5 sm:gap-4" aria-label="Portal Navigation Links">
+
+      <!-- ========================================== -->
+      <!-- CARD 1: Blue - Dashboard / Home (https://xylozentech.com) -->
+      <!-- ========================================== -->
+      <a 
+        href="https://xylozentech.com" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        id="card-dashboard"
+        class="group card-shine relative overflow-hidden rounded-[16px] px-4 py-3.5 sm:px-4.5 sm:py-4 flex items-center justify-between shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-0.5 active:scale-[0.99] select-none cursor-pointer"
+        style="background: linear-gradient(135deg, #7ec2f8 0%, #4da5f7 45%, #2a83e9 100%);"
+        aria-label="Dashboard - Employee Contract Details. Opens xylozentech.com"
+      >
+        <!-- Fluid Waves Background Artwork -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+          <!-- Fluid Wave Layer 1 (Darker translucent blue) -->
+          <svg class="absolute -right-8 -bottom-8 w-60 h-44 text-blue-900/15" viewBox="0 0 300 200" fill="currentColor">
+            <path d="M120 0 C 180 40, 240 10, 300 60 L 300 200 L 0 200 C 60 160, 80 80, 120 0 Z" />
+          </svg>
+          <!-- Fluid Wave Layer 2 (Lighter translucent cyan-white) -->
+          <svg class="absolute right-0 top-0 w-64 h-40 text-white/20" viewBox="0 0 320 200" fill="currentColor">
+            <path d="M80 0 C 140 80, 220 30, 320 120 L 320 0 Z" />
+          </svg>
+          <!-- Fluid Bubble Blob 3 -->
+          <div class="absolute -right-6 -top-6 w-36 h-36 rounded-full bg-white/10 blur-xl"></div>
+        </div>
+
+        <!-- Left: White Circle Badge with Large Liquid Wave Circle Icon -->
+        <div class="relative z-10 flex items-center gap-3.5 sm:gap-4">
+          <div class="w-[68px] h-[68px] sm:w-[72px] sm:h-[72px] rounded-full bg-white shadow-md ring-4 ring-white/35 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105">
+            <!-- Icon 1: Liquid Wave Inside Circle (Large & Bold) -->
+            <svg class="w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] text-[#3b82f6]" viewBox="0 0 64 64" fill="none">
+              <!-- Outer circle outline -->
+              <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="5.5" />
+              <!-- Liquid wave filling lower portion with twin crests -->
+              <path d="M 5 35 C 13 27, 21 42, 32 34 C 43 26, 51 40, 59 33 L 59 47 C 55 54, 45 59, 32 59 C 19 59, 9 54, 5 47 Z" fill="currentColor" />
+            </svg>
+          </div>
+
+          <!-- Text Block -->
+          <div class="flex flex-col text-white">
+            <span class="text-xl sm:text-[22px] font-bold tracking-normal leading-tight drop-shadow-xs">Dashboard</span>
+            <span class="text-xs sm:text-sm text-white/85 font-normal leading-normal mt-0.5">Employee Contract Details</span>
+          </div>
+        </div>
+
+        <!-- Right: Chunky Rounded Solid Arrow (Matching screenshot) -->
+        <div class="relative z-10 pr-1">
+          <div class="w-8 h-8 flex items-center justify-center text-blue-900/40 group-hover:text-blue-900/70 transition-all duration-300 group-hover:translate-x-1.5">
+            <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M13.2 4.3a1.4 1.4 0 0 1 2 0l6 6c.55.55.55 1.45 0 2l-6 6a1.4 1.4 0 0 1-2-2l3.6-3.6H4.4a1.4 1.4 0 0 1 0-2.8h12.4l-3.6-3.6a1.4 1.4 0 0 1 0-2z" />
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- ========================================== -->
+      <!-- CARD 2: Orange - Online Services (https://xylozentech.com/services) -->
+      <!-- ========================================== -->
+      <a 
+        href="https://xylozentech.com/services" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        id="card-services"
+        class="group card-shine relative overflow-hidden rounded-[16px] px-4 py-3.5 sm:px-4.5 sm:py-4 flex items-center justify-between shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-0.5 active:scale-[0.99] select-none cursor-pointer"
+        style="background: linear-gradient(135deg, #fbc05c 0%, #f9903b 50%, #f06126 100%);"
+        aria-label="Online Services - All Online Services Here. Opens xylozentech.com/services"
+      >
+        <!-- Fluid Waves Background Artwork -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+          <svg class="absolute -right-8 -bottom-8 w-60 h-44 text-orange-950/15" viewBox="0 0 300 200" fill="currentColor">
+            <path d="M120 0 C 180 40, 240 10, 300 60 L 300 200 L 0 200 C 60 160, 80 80, 120 0 Z" />
+          </svg>
+          <svg class="absolute right-0 top-0 w-64 h-40 text-white/20" viewBox="0 0 320 200" fill="currentColor">
+            <path d="M80 0 C 140 80, 220 30, 320 120 L 320 0 Z" />
+          </svg>
+          <div class="absolute -right-6 -top-6 w-36 h-36 rounded-full bg-white/10 blur-xl"></div>
+        </div>
+
+        <!-- Left: White Circle Badge with Settings Gear Icon -->
+        <div class="relative z-10 flex items-center gap-3.5 sm:gap-4">
+          <div class="w-[68px] h-[68px] sm:w-[72px] sm:h-[72px] rounded-full bg-white shadow-md ring-4 ring-white/35 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105">
+            <!-- Icon 2: Settings Gear for Online Services -->
+            <svg class="w-[46px] h-[46px] sm:w-[50px] sm:h-[50px] text-[#ea580c]" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+            </svg>
+          </div>
+
+          <!-- Text Block -->
+          <div class="flex flex-col text-white">
+            <span class="text-xl sm:text-[22px] font-bold tracking-normal leading-tight drop-shadow-xs">Online Services</span>
+            <span class="text-xs sm:text-sm text-white/85 font-normal leading-normal mt-0.5">All Online Services Here</span>
+          </div>
+        </div>
+
+        <!-- Right: Chunky Rounded Solid Arrow -->
+        <div class="relative z-10 pr-1">
+          <div class="w-8 h-8 flex items-center justify-center text-orange-950/40 group-hover:text-orange-950/70 transition-all duration-300 group-hover:translate-x-1.5">
+            <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M13.2 4.3a1.4 1.4 0 0 1 2 0l6 6c.55.55.55 1.45 0 2l-6 6a1.4 1.4 0 0 1-2-2l3.6-3.6H4.4a1.4 1.4 0 0 1 0-2.8h12.4l-3.6-3.6a1.4 1.4 0 0 1 0-2z" />
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- ========================================== -->
+      <!-- CARD 3: Rose/Pink - Offers / Brochure PDF -->
+      <!-- ========================================== -->
+      <a 
+        href="documents/brochure.pdf" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        id="card-offers"
+        class="group card-shine relative overflow-hidden rounded-[16px] px-4 py-3.5 sm:px-4.5 sm:py-4 flex items-center justify-between shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-0.5 active:scale-[0.99] select-none cursor-pointer"
+        style="background: linear-gradient(135deg, #f8719d 0%, #f05274 50%, #db3356 100%);"
+        aria-label="Offers - Ramadan Offers. Opens brochure PDF in a new tab"
+      >
+        <!-- Fluid Waves Background Artwork -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+          <svg class="absolute -right-8 -bottom-8 w-60 h-44 text-rose-950/15" viewBox="0 0 300 200" fill="currentColor">
+            <path d="M120 0 C 180 40, 240 10, 300 60 L 300 200 L 0 200 C 60 160, 80 80, 120 0 Z" />
+          </svg>
+          <svg class="absolute right-0 top-0 w-64 h-40 text-white/20" viewBox="0 0 320 200" fill="currentColor">
+            <path d="M80 0 C 140 80, 220 30, 320 120 L 320 0 Z" />
+          </svg>
+          <div class="absolute -right-6 -top-6 w-36 h-36 rounded-full bg-white/10 blur-xl"></div>
+        </div>
+
+        <!-- Left: White Circle Badge with Clean Standalone Gift Box Icon -->
+        <div class="relative z-10 flex items-center gap-3.5 sm:gap-4">
+          <div class="w-[68px] h-[68px] sm:w-[72px] sm:h-[72px] rounded-full bg-white shadow-md ring-4 ring-white/35 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105">
+            <!-- Icon 3: Clean Standalone Gift Box Present -->
+            <svg class="w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] text-[#e11d48]" viewBox="0 0 48 48" fill="currentColor">
+              <!-- Bow loops -->
+              <path d="M22 10.5c-3-4-8-4-8-.3 0 2.8 5.8 4 8 4.6zm4 0c3-4 8-4 8-.3 0 2.8-5.8 4-8 4.6z" />
+              <circle cx="24" cy="14" r="2" />
+              <!-- Left Lid -->
+              <rect x="8" y="16" width="14" height="5.5" rx="1.5" />
+              <!-- Right Lid -->
+              <rect x="26" y="16" width="14" height="5.5" rx="1.5" />
+              <!-- Left Box Body -->
+              <path d="M10.5 24.5 h 11.5 v 15 a 2 2 0 0 1 -2 2 h -7.5 a 2 2 0 0 1 -2 -2 z" />
+              <!-- Right Box Body -->
+              <path d="M26 24.5 h 11.5 v 15 a 2 2 0 0 1 -2 2 h -7.5 a 2 2 0 0 1 -2 -2 z" />
+            </svg>
+          </div>
+
+          <!-- Text Block -->
+          <div class="flex flex-col text-white">
+            <span class="text-xl sm:text-[22px] font-bold tracking-normal leading-tight drop-shadow-xs">Offers</span>
+            <span class="text-xs sm:text-sm text-white/85 font-normal leading-normal mt-0.5">Ramadan Offers</span>
+          </div>
+        </div>
+
+        <!-- Right: Chunky Rounded Solid Arrow -->
+        <div class="relative z-10 pr-1">
+          <div class="w-8 h-8 flex items-center justify-center text-rose-950/40 group-hover:text-rose-950/70 transition-all duration-300 group-hover:translate-x-1.5">
+            <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M13.2 4.3a1.4 1.4 0 0 1 2 0l6 6c.55.55.55 1.45 0 2l-6 6a1.4 1.4 0 0 1-2-2l3.6-3.6H4.4a1.4 1.4 0 0 1 0-2.8h12.4l-3.6-3.6a1.4 1.4 0 0 1 0-2z" />
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- ========================================== -->
+      <!-- CARD 4: Purple - Loyalty / Xylozen Technologies PDF -->
+      <!-- ========================================== -->
+      <a 
+        href="documents/Xylozen%20Technologies.pdf" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        id="card-loyalty"
+        class="group card-shine relative overflow-hidden rounded-[16px] px-4 py-3.5 sm:px-4.5 sm:py-4 flex items-center justify-between shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-0.5 active:scale-[0.99] select-none cursor-pointer"
+        style="background: linear-gradient(135deg, #be7ef9 0%, #a251ea 50%, #852cd9 100%);"
+        aria-label="Loyalty - How do we are work. Opens Xylozen Technologies PDF in a new tab"
+      >
+        <!-- Fluid Waves Background Artwork -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+          <svg class="absolute -right-8 -bottom-8 w-60 h-44 text-purple-950/15" viewBox="0 0 300 200" fill="currentColor">
+            <path d="M120 0 C 180 40, 240 10, 300 60 L 300 200 L 0 200 C 60 160, 80 80, 120 0 Z" />
+          </svg>
+          <svg class="absolute right-0 top-0 w-64 h-40 text-white/20" viewBox="0 0 320 200" fill="currentColor">
+            <path d="M80 0 C 140 80, 220 30, 320 120 L 320 0 Z" />
+          </svg>
+          <div class="absolute -right-6 -top-6 w-36 h-36 rounded-full bg-white/10 blur-xl"></div>
+        </div>
+
+        <!-- Left: White Circle Badge with Large Rosette Medal & Heart Icon -->
+        <div class="relative z-10 flex items-center gap-3.5 sm:gap-4">
+          <div class="w-[68px] h-[68px] sm:w-[72px] sm:h-[72px] rounded-full bg-white shadow-md ring-4 ring-white/35 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105">
+            <!-- Icon 4: Ribbon Medal Badge with Heart in Center (Large & Bold) -->
+            <svg class="w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] text-[#9333ea]" viewBox="0 0 48 48" fill="none">
+              <!-- Dangling ribbon tails with V notches -->
+              <path d="M17 28L9 45L21 40L25 29" fill="currentColor" opacity="0.95" />
+              <path d="M31 28L39 45L27 40L23 29" fill="currentColor" opacity="0.95" />
+              <!-- Outer Medal Circle outline -->
+              <circle cx="24" cy="20" r="16" stroke="currentColor" stroke-width="4.5" fill="white" />
+              <!-- Center solid heart -->
+              <path d="M24 16.5c-1.4-2.5-4-2.8-5.6-1.2-2 2-1.8 4.6 0 6.5l5.6 5.6 5.6-5.6c1.8-1.9 2-4.5 0-6.5-1.6-1.6-4.2-1.3-5.6 1.2z" fill="currentColor" />
+            </svg>
+          </div>
+
+          <!-- Text Block -->
+          <div class="flex flex-col text-white">
+            <span class="text-xl sm:text-[22px] font-bold tracking-normal leading-tight drop-shadow-xs">Loyalty</span>
+            <span class="text-xs sm:text-sm text-white/85 font-normal leading-normal mt-0.5">How do we are work</span>
+          </div>
+        </div>
+
+        <!-- Right: Chunky Rounded Solid Arrow -->
+        <div class="relative z-10 pr-1">
+          <div class="w-8 h-8 flex items-center justify-center text-purple-950/40 group-hover:text-purple-950/70 transition-all duration-300 group-hover:translate-x-1.5">
+            <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M13.2 4.3a1.4 1.4 0 0 1 2 0l6 6c.55.55.55 1.45 0 2l-6 6a1.4 1.4 0 0 1-2-2l3.6-3.6H4.4a1.4 1.4 0 0 1 0-2.8h12.4l-3.6-3.6a1.4 1.4 0 0 1 0-2z" />
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- ========================================== -->
+      <!-- CARD 5: Teal - Contact - Us (https://xylozentech.com/contact) -->
+      <!-- ========================================== -->
+      <a 
+        href="https://xylozentech.com/contact" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        id="card-contact"
+        class="group card-shine relative overflow-hidden rounded-[16px] px-4 py-3.5 sm:px-4.5 sm:py-4 flex items-center justify-between shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-0.5 active:scale-[0.99] select-none cursor-pointer"
+        style="background: linear-gradient(135deg, #38d6ae 0%, #15b097 50%, #0d837b 100%);"
+        aria-label="Contact - Us - Need Help?  Chat with us. Opens xylozentech.com/contact"
+      >
+        <!-- Fluid Waves Background Artwork -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+          <svg class="absolute -right-8 -bottom-8 w-60 h-44 text-teal-950/20" viewBox="0 0 300 200" fill="currentColor">
+            <path d="M120 0 C 180 40, 240 10, 300 60 L 300 200 L 0 200 C 60 160, 80 80, 120 0 Z" />
+          </svg>
+          <svg class="absolute right-0 top-0 w-64 h-40 text-white/20" viewBox="0 0 320 200" fill="currentColor">
+            <path d="M80 0 C 140 80, 220 30, 320 120 L 320 0 Z" />
+          </svg>
+          <div class="absolute -right-6 -top-6 w-36 h-36 rounded-full bg-white/10 blur-xl"></div>
+        </div>
+
+        <!-- Left: White Circle Badge with Large Speech Bubbles Icon -->
+        <div class="relative z-10 flex items-center gap-3.5 sm:gap-4">
+          <div class="w-[68px] h-[68px] sm:w-[72px] sm:h-[72px] rounded-full bg-white shadow-md ring-4 ring-white/35 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105">
+            <!-- Icon 5: Speech Bubbles with 3 dots (Large & Bold) -->
+            <svg class="w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] text-[#0d9488]" viewBox="0 0 48 48" fill="none">
+              <!-- Back bubble: solid teal filled -->
+              <path d="M25 8H17A12 12 0 0 0 5 20c0 4.2 2.2 7.8 5.5 10l-2.5 8 9.5-3.2c2.4.8 5 1 7.5.5" fill="currentColor" />
+              <!-- Front chat bubble with 3 dots: outline with white fill -->
+              <path d="M44 24.5a10 10 0 0 0-10-10h-8a10 10 0 0 0-10 10c0 5.5 4.5 10 10 10h2l7.5 5-1.6-5.5c5.8-1.5 10.1-5 10.1-9.5z" fill="white" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round" />
+              <!-- 3 Dots inside front bubble -->
+              <circle cx="25.5" cy="24.5" r="2" fill="currentColor" />
+              <circle cx="30.5" cy="24.5" r="2" fill="currentColor" />
+              <circle cx="35.5" cy="24.5" r="2" fill="currentColor" />
+            </svg>
+          </div>
+
+          <!-- Text Block: Named as Contact - Us -->
+          <div class="flex flex-col text-white">
+            <span class="text-xl sm:text-[22px] font-bold tracking-normal leading-tight drop-shadow-xs">Contact - Us</span>
+            <span class="text-xs sm:text-sm text-white/85 font-normal leading-normal mt-0.5">Need Help? &nbsp;Chat with us</span>
+          </div>
+        </div>
+
+        <!-- Right: Chunky Rounded Solid Arrow -->
+        <div class="relative z-10 pr-1">
+          <div class="w-8 h-8 flex items-center justify-center text-teal-950/40 group-hover:text-teal-950/70 transition-all duration-300 group-hover:translate-x-1.5">
+            <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M13.2 4.3a1.4 1.4 0 0 1 2 0l6 6c.55.55.55 1.45 0 2l-6 6a1.4 1.4 0 0 1-2-2l3.6-3.6H4.4a1.4 1.4 0 0 1 0-2.8h12.4l-3.6-3.6a1.4 1.4 0 0 1 0-2z" />
+            </svg>
+          </div>
+        </div>
+      </a>
+
+    </section>
+
+    <!-- Footer Note -->
+    <footer class="mt-6 text-center text-xs text-stone-400 font-medium">
+      <p>© 2026 Xylozen Tech. All rights reserved.</p>
+    </footer>
+
+  </main>
+
+</body>
+</html>
