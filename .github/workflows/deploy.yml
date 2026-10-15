@@ -22,7 +22,7 @@ jobs:
       - name: 📦 Package Static SPA Artifact
         run: |
           mkdir -p /tmp/artifact/dist
-          cp -a index.html documents /tmp/artifact/dist/
+          cp -a index.html documents images /tmp/artifact/dist/
           tar -czf /tmp/info-deploy.tar.gz -C /tmp/artifact .
           echo "✅ Package created: $(ls -lh /tmp/info-deploy.tar.gz)"
 
