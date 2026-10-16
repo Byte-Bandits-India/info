@@ -35,6 +35,14 @@
     }
   </script>
 
+  <!-- PDF.js by Mozilla for cross-platform inline PDF canvas rendering on mobile & desktop -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    if (window.pdfjsLib) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+  </script>
+
   <style>
     html, body {
       height: 100%;
@@ -429,33 +437,33 @@
     <div class="flex flex-col h-full w-full bg-white text-slate-800 antialiased font-sans overflow-hidden">
       
       <!-- Top Modal Navigation / Action Bar -->
-      <header class="px-4 sm:px-5 py-3 bg-white/95 backdrop-blur border-b border-slate-200/80 flex items-center justify-between gap-3 shrink-0">
+      <header class="px-3 sm:px-5 py-2.5 sm:py-3 bg-white/95 backdrop-blur border-b border-slate-200/80 flex items-center justify-between gap-2 sm:gap-3 shrink-0">
         
         <!-- Left: Document Title with Icon Badge -->
-        <div class="flex items-center gap-2.5 min-w-0 pr-2">
-          <div id="modal-doc-icon-badge" class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 border border-rose-100 transition-colors">
+        <div class="flex items-center gap-2 min-w-0 flex-1 mr-1">
+          <div id="modal-doc-icon-badge" class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 border border-rose-100 transition-colors">
             <!-- PDF Document Icon -->
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
               <polyline points="14 2 14 8 20 8"></polyline>
               <line x1="16" y1="13" x2="8" y2="13"></line>
               <line x1="16" y1="17" x2="8" y2="17"></line>
             </svg>
           </div>
-          <h2 id="modal-doc-title" class="text-base sm:text-lg font-bold text-slate-900 leading-tight truncate">Company Brochure</h2>
+          <h2 id="modal-doc-title" class="text-sm sm:text-base font-bold text-slate-900 leading-tight truncate">Company Brochure</h2>
         </div>
 
         <!-- Right: Primary Action Buttons (Download, Open Tab, Close) -->
-        <div class="flex items-center gap-2 shrink-0">
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <!-- The Download Button -->
           <a 
             id="modal-download-btn" 
             href="documents/brochure.pdf" 
             download="Xylozen_Company_Brochure.pdf"
-            class="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 active:scale-[0.98] shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
+            class="inline-flex items-center gap-1 sm:gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 active:scale-[0.98] shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
             aria-label="Download Document"
           >
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
               <polyline points="7 10 12 15 17 10"></polyline>
               <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -469,7 +477,7 @@
             href="documents/brochure.pdf" 
             target="_blank" 
             rel="noopener noreferrer" 
-            class="hidden sm:inline-flex items-center justify-center w-9 h-9 rounded-xl text-slate-500 hover:text-slate-800 hover:bg-slate-100 active:scale-95 transition-colors border border-transparent hover:border-slate-200" 
+            class="hidden sm:inline-flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-xl text-slate-500 hover:text-slate-800 hover:bg-slate-100 active:scale-95 transition-colors border border-transparent hover:border-slate-200" 
             title="Open in new window"
             aria-label="Open document in new window"
           >
@@ -484,10 +492,10 @@
           <button 
             type="button" 
             id="modal-close-btn" 
-            class="inline-flex items-center justify-center w-9 h-9 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 active:scale-95 transition-colors border border-transparent hover:border-slate-200" 
+            class="inline-flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 active:scale-95 transition-colors border border-transparent hover:border-slate-200" 
             aria-label="Close document modal"
           >
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
@@ -500,16 +508,21 @@
       <div class="relative flex-1 w-full bg-slate-100 flex flex-col overflow-hidden">
         
         <!-- Loading Spinner -->
-        <div id="modal-loading-indicator" class="absolute inset-0 z-0 flex flex-col items-center justify-center bg-slate-50 gap-3 text-slate-500 transition-opacity duration-300">
-          <div class="w-9 h-9 border-3 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-          <p class="text-xs font-medium text-slate-500 tracking-wide">Loading document preview...</p>
+        <div id="modal-loading-indicator" class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-slate-50 gap-3 text-slate-500 transition-opacity duration-300">
+          <div class="w-8 h-8 border-3 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+          <p class="text-xs font-medium text-slate-500 tracking-wide">Rendering document...</p>
         </div>
 
-        <!-- Iframe displaying PDF with native controls -->
+        <!-- Scrollable PDF Pages Container (Native canvas rendering across all mobile browsers) -->
+        <div id="modal-pdf-pages" class="relative z-10 w-full h-full overflow-y-auto overflow-x-hidden p-2.5 sm:p-4 flex flex-col items-center gap-3.5 bg-slate-200/60 overscroll-contain">
+          <!-- Canvases dynamically appended here by PDF.js -->
+        </div>
+
+        <!-- Iframe Fallback Container (used if PDF.js is unavailable) -->
         <iframe 
           id="modal-pdf-iframe" 
           src="" 
-          class="relative z-10 w-full h-full border-0 bg-white" 
+          class="hidden w-full h-full border-0 bg-white" 
           title="PDF Document Preview"
         ></iframe>
 
@@ -537,6 +550,7 @@
     };
 
     const docModal = document.getElementById('document-modal');
+    const modalPdfPages = document.getElementById('modal-pdf-pages');
     const modalPdfIframe = document.getElementById('modal-pdf-iframe');
     const modalDocTitle = document.getElementById('modal-doc-title');
     const modalDocIconBadge = document.getElementById('modal-doc-icon-badge');
@@ -545,12 +559,109 @@
     const modalLoadingIndicator = document.getElementById('modal-loading-indicator');
     const modalCloseBtn = document.getElementById('modal-close-btn');
 
+    let currentActiveDoc = null;
+    let activeRenderSession = 0;
+
+    async function renderPdfDocument(filePath) {
+      const sessionId = ++activeRenderSession;
+      modalPdfPages.innerHTML = '';
+      modalPdfPages.classList.remove('hidden');
+      modalPdfIframe.classList.add('hidden');
+      modalLoadingIndicator.style.display = 'flex';
+      modalLoadingIndicator.style.opacity = '1';
+
+      // Fallback to iframe if PDF.js is not loaded
+      if (typeof pdfjsLib === 'undefined') {
+        modalPdfIframe.src = filePath + '#toolbar=1&navpanes=0';
+        modalPdfIframe.classList.remove('hidden');
+        modalPdfPages.classList.add('hidden');
+        modalLoadingIndicator.style.opacity = '0';
+        setTimeout(() => { modalLoadingIndicator.style.display = 'none'; }, 200);
+        return;
+      }
+
+      try {
+        const loadingTask = pdfjsLib.getDocument({
+          url: filePath,
+          cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+          cMapPacked: true,
+        });
+
+        const pdf = await loadingTask.promise;
+        if (sessionId !== activeRenderSession) return;
+
+        const totalPages = pdf.numPages;
+
+        for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+          if (sessionId !== activeRenderSession) return;
+
+          const pageWrapper = document.createElement('div');
+          pageWrapper.className = 'w-full max-w-[820px] bg-white rounded-lg shadow-sm border border-slate-300/60 overflow-hidden flex flex-col items-center shrink-0';
+
+          const canvas = document.createElement('canvas');
+          canvas.className = 'w-full h-auto block';
+          pageWrapper.appendChild(canvas);
+
+          // Page footer badge
+          const pageBadge = document.createElement('div');
+          pageBadge.className = 'w-full py-1 px-3 bg-slate-50 border-t border-slate-100 text-center text-[10px] text-slate-400 font-medium select-none';
+          pageBadge.textContent = `Page ${pageNum} of ${totalPages}`;
+          pageWrapper.appendChild(pageBadge);
+
+          modalPdfPages.appendChild(pageWrapper);
+
+          const page = await pdf.getPage(pageNum);
+          if (sessionId !== activeRenderSession) return;
+
+          const containerWidth = Math.max(modalPdfPages.clientWidth - 24, 280);
+          const targetWidth = Math.min(containerWidth, 820);
+          const unscaledViewport = page.getViewport({ scale: 1 });
+          const scale = targetWidth / unscaledViewport.width;
+          const viewport = page.getViewport({ scale: scale });
+
+          const outputScale = window.devicePixelRatio || 1;
+          canvas.width = Math.floor(viewport.width * outputScale);
+          canvas.height = Math.floor(viewport.height * outputScale);
+          canvas.style.width = Math.floor(viewport.width) + 'px';
+          canvas.style.height = Math.floor(viewport.height) + 'px';
+
+          const context = canvas.getContext('2d');
+          const renderContext = {
+            canvasContext: context,
+            transform: outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null,
+            viewport: viewport
+          };
+
+          await page.render(renderContext).promise;
+
+          // Hide loading indicator after page 1 renders for fast preview
+          if (pageNum === 1) {
+            modalLoadingIndicator.style.opacity = '0';
+            setTimeout(() => {
+              if (sessionId === activeRenderSession) {
+                modalLoadingIndicator.style.display = 'none';
+              }
+            }, 200);
+          }
+        }
+      } catch (err) {
+        console.warn('PDF.js render error, falling back to native viewer:', err);
+        if (sessionId !== activeRenderSession) return;
+        modalPdfIframe.src = filePath + '#toolbar=1&navpanes=0';
+        modalPdfIframe.classList.remove('hidden');
+        modalPdfPages.classList.add('hidden');
+        modalLoadingIndicator.style.opacity = '0';
+        setTimeout(() => { modalLoadingIndicator.style.display = 'none'; }, 200);
+      }
+    }
+
     function openDocumentModal(docKey) {
       const doc = documentsData[docKey];
       if (!doc) return;
+      currentActiveDoc = docKey;
 
       modalDocTitle.textContent = doc.title;
-      modalDocIconBadge.className = `w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border transition-colors ${doc.iconBg}`;
+      modalDocIconBadge.className = `w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center shrink-0 border transition-colors ${doc.iconBg}`;
 
       // Update download link
       modalDownloadBtn.href = doc.filePath;
@@ -560,20 +671,14 @@
         modalOpenTabBtn.href = doc.filePath;
       }
 
-      // Show spinner while iframe loads
-      modalLoadingIndicator.style.opacity = '1';
-      modalPdfIframe.onload = () => {
-        modalLoadingIndicator.style.opacity = '0';
-      };
-
-      // Set iframe src with pdf parameters
-      modalPdfIframe.src = doc.filePath + '#toolbar=1&navpanes=0';
-
       // Open modal dialog if not already open
       if (!docModal.open) {
         docModal.showModal();
         document.body.style.overflow = 'hidden';
       }
+
+      // Render document with PDF.js
+      renderPdfDocument(doc.filePath);
     }
 
     function closeDocumentModal() {
@@ -584,9 +689,11 @@
 
     // Modal close event listener (fires on close() or ESC key)
     docModal.addEventListener('close', () => {
-      // Clear iframe to prevent memory leak and background processing
+      activeRenderSession++; // Cancels ongoing page rendering
+      modalPdfPages.innerHTML = '';
       modalPdfIframe.src = 'about:blank';
       document.body.style.overflow = '';
+      currentActiveDoc = null;
       if (window.location.hash) {
         history.replaceState(null, '', window.location.pathname);
       }
@@ -607,6 +714,17 @@
       if (!isInside) {
         closeDocumentModal();
       }
+    });
+
+    // Handle screen resize / orientation changes gracefully
+    let resizeDebounceTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeDebounceTimer);
+      resizeDebounceTimer = setTimeout(() => {
+        if (docModal.open && currentActiveDoc) {
+          renderPdfDocument(documentsData[currentActiveDoc].filePath);
+        }
+      }, 300);
     });
 
     // Portal Card Clicks (Card 3: brochure, Card 4: presenting/xylozen)
