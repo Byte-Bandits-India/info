@@ -435,8 +435,7 @@
   >
     <!-- Modal Inner Frame -->
     <div class="flex flex-col h-full w-full bg-white text-slate-800 antialiased font-sans overflow-hidden">
-      
-      <!-- Top Modal Navigation / Action Bar -->
+            <!-- Top Modal Navigation / Action Bar -->
       <header class="px-3 sm:px-5 py-2.5 sm:py-3 bg-white/95 backdrop-blur border-b border-slate-200/80 flex items-center justify-between gap-2 sm:gap-3 shrink-0">
         
         <!-- Left: Document Title with Icon Badge -->
@@ -453,14 +452,31 @@
           <h2 id="modal-doc-title" class="text-sm sm:text-base font-bold text-slate-900 leading-tight truncate">Company Brochure</h2>
         </div>
 
-        <!-- Right: Primary Action Buttons (Download, Open Tab, Close) -->
+        <!-- Right: Action Buttons (Desktop View & Download + Close Button) -->
         <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
-          <!-- The Download Button -->
+          <!-- Desktop View Option Button -->
+          <a 
+            id="modal-view-btn" 
+            href="documents/brochure.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 active:scale-95 transition-all border border-slate-200/80 cursor-pointer" 
+            title="View original document in full quality"
+            aria-label="View original document in full quality"
+          >
+            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <span>View</span>
+          </a>
+
+          <!-- Desktop Download Option Button -->
           <a 
             id="modal-download-btn" 
             href="documents/brochure.pdf" 
             download="Xylozen_Company_Brochure.pdf"
-            class="inline-flex items-center gap-1 sm:gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 active:scale-[0.98] shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
+            class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 active:scale-[0.98] shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
             aria-label="Download Document"
           >
             <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -469,23 +485,6 @@
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
             <span>Download</span>
-          </a>
-
-          <!-- Open in New Tab Button -->
-          <a 
-            id="modal-open-tab-btn" 
-            href="documents/brochure.pdf" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="hidden sm:inline-flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-xl text-slate-500 hover:text-slate-800 hover:bg-slate-100 active:scale-95 transition-colors border border-transparent hover:border-slate-200" 
-            title="Open in new window"
-            aria-label="Open document in new window"
-          >
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
           </a>
 
           <!-- Close Modal Button -->
@@ -504,13 +503,48 @@
 
       </header>
 
+      <!-- Mobile Quick Option Buttons Bar (Prominent View & Download buttons on mobile popup) -->
+      <div class="flex items-center gap-2 px-3 py-2 bg-slate-50/95 border-b border-slate-200/80 sm:hidden shrink-0">
+        <!-- Mobile View Option Button -->
+        <a 
+          id="modal-mobile-view-btn" 
+          href="documents/brochure.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold text-slate-700 bg-white border border-slate-300 shadow-xs active:scale-[0.98] transition-all cursor-pointer"
+          aria-label="View Document in Full Original Quality"
+        >
+          <svg class="w-3.5 h-3.5 text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          <span>View Online</span>
+        </a>
+
+        <!-- Mobile Download Option Button -->
+        <a 
+          id="modal-mobile-download-btn" 
+          href="documents/brochure.pdf" 
+          download="Xylozen_Company_Brochure.pdf" 
+          class="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-blue-600 to-indigo-600 shadow-xs active:scale-[0.98] transition-all cursor-pointer"
+          aria-label="Download Document"
+        >
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Download</span>
+        </a>
+      </div>
+
       <!-- Document Preview Body -->
       <div class="relative flex-1 w-full bg-slate-100 flex flex-col overflow-hidden">
         
         <!-- Loading Spinner -->
         <div id="modal-loading-indicator" class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-slate-50 gap-3 text-slate-500 transition-opacity duration-300">
           <div class="w-8 h-8 border-3 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-          <p class="text-xs font-medium text-slate-500 tracking-wide">Rendering document...</p>
+          <p class="text-xs font-medium text-slate-500 tracking-wide">Rendering document at maximum quality...</p>
         </div>
 
         <!-- Scrollable PDF Pages Container (Native canvas rendering across all mobile browsers) -->
@@ -555,7 +589,9 @@
     const modalDocTitle = document.getElementById('modal-doc-title');
     const modalDocIconBadge = document.getElementById('modal-doc-icon-badge');
     const modalDownloadBtn = document.getElementById('modal-download-btn');
-    const modalOpenTabBtn = document.getElementById('modal-open-tab-btn');
+    const modalViewBtn = document.getElementById('modal-view-btn');
+    const modalMobileDownloadBtn = document.getElementById('modal-mobile-download-btn');
+    const modalMobileViewBtn = document.getElementById('modal-mobile-view-btn');
     const modalLoadingIndicator = document.getElementById('modal-loading-indicator');
     const modalCloseBtn = document.getElementById('modal-close-btn');
 
@@ -596,7 +632,7 @@
           if (sessionId !== activeRenderSession) return;
 
           const pageWrapper = document.createElement('div');
-          pageWrapper.className = 'w-full max-w-[820px] bg-white rounded-lg shadow-sm border border-slate-300/60 overflow-hidden flex flex-col items-center shrink-0';
+          pageWrapper.className = 'w-full max-w-[820px] bg-white rounded-lg shadow-sm border border-slate-300/70 overflow-hidden flex flex-col items-center shrink-0';
 
           const canvas = document.createElement('canvas');
           canvas.className = 'w-full h-auto block';
@@ -613,28 +649,27 @@
           const page = await pdf.getPage(pageNum);
           if (sessionId !== activeRenderSession) return;
 
-          const containerWidth = Math.max(modalPdfPages.clientWidth - 24, 280);
-          const targetWidth = Math.min(containerWidth, 820);
-          const unscaledViewport = page.getViewport({ scale: 1 });
-          const scale = targetWidth / unscaledViewport.width;
-          const viewport = page.getViewport({ scale: scale });
+          // Render at high-definition resolution (3x scale) for uncompromised, razor-sharp vector clarity
+          const highResScale = Math.max((window.devicePixelRatio || 2) * 1.5, 2.5);
+          const viewport = page.getViewport({ scale: highResScale });
 
-          const outputScale = window.devicePixelRatio || 1;
-          canvas.width = Math.floor(viewport.width * outputScale);
-          canvas.height = Math.floor(viewport.height * outputScale);
-          canvas.style.width = Math.floor(viewport.width) + 'px';
-          canvas.style.height = Math.floor(viewport.height) + 'px';
+          canvas.width = Math.floor(viewport.width);
+          canvas.height = Math.floor(viewport.height);
+          canvas.style.width = '100%';
+          canvas.style.height = 'auto';
 
-          const context = canvas.getContext('2d');
+          const context = canvas.getContext('2d', { alpha: false });
+          context.imageSmoothingEnabled = true;
+          context.imageSmoothingQuality = 'high';
+
           const renderContext = {
             canvasContext: context,
-            transform: outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null,
             viewport: viewport
           };
 
           await page.render(renderContext).promise;
 
-          // Hide loading indicator after page 1 renders for fast preview
+          // Hide loading indicator as soon as page 1 renders for instant preview
           if (pageNum === 1) {
             modalLoadingIndicator.style.opacity = '0';
             setTimeout(() => {
@@ -663,13 +698,16 @@
       modalDocTitle.textContent = doc.title;
       modalDocIconBadge.className = `w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center shrink-0 border transition-colors ${doc.iconBg}`;
 
-      // Update download link
+      // Update download links (Desktop + Mobile)
       modalDownloadBtn.href = doc.filePath;
       modalDownloadBtn.setAttribute('download', doc.downloadName);
 
-      if (modalOpenTabBtn) {
-        modalOpenTabBtn.href = doc.filePath;
-      }
+      modalMobileDownloadBtn.href = doc.filePath;
+      modalMobileDownloadBtn.setAttribute('download', doc.downloadName);
+
+      // Update view links (Desktop + Mobile)
+      modalViewBtn.href = doc.filePath;
+      modalMobileViewBtn.href = doc.filePath;
 
       // Open modal dialog if not already open
       if (!docModal.open) {
@@ -677,7 +715,7 @@
         document.body.style.overflow = 'hidden';
       }
 
-      // Render document with PDF.js
+      // Render document with PDF.js at unreduced maximum quality
       renderPdfDocument(doc.filePath);
     }
 

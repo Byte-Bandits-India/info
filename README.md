@@ -30,9 +30,9 @@ The cards link directly to your documents:
 - Card 4: `documents/Xylozen%20Technologies.pdf`
 
 Clicking either card opens a clean, responsive **modal screen**:
-- **Inline PDF Preview**: Embedded document viewer with zoom and page controls.
-- **Direct Download Button**: Prominent download button to save the document immediately.
-- **External View**: Option to pop out and view the document in a full browser tab.
+- **Uncompromised Full Quality**: Real-time vector rendering at up to 300 DPI with zero compression or quality loss.
+- **View Option Button**: Instantly open the original, full-resolution document in the browser's native viewer.
+- **Download Option Button**: Direct download to save the original file to your device.
 - **Light Dismiss**: Dismiss by clicking outside the backdrop, pressing <kbd>Esc</kbd>, or clicking the close button.
 
 ---
