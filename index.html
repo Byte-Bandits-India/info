@@ -63,6 +63,56 @@
     .card-shine:hover::after {
       left: 150%;
     }
+
+    /* Document preview modal dialog styling */
+    dialog#document-modal {
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      border: none;
+      padding: 0;
+      border-radius: 20px;
+      background: #ffffff;
+      width: min(95vw, 1100px);
+      height: min(92vh, 880px);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.08);
+      outline: none;
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+    }
+
+    dialog#document-modal[open] {
+      display: flex;
+      animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    dialog#document-modal::backdrop {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      animation: backdropFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.96) translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes backdropFadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 <body class="bg-white text-slate-800 antialiased font-sans flex flex-col items-center justify-center p-3 sm:p-5 selection:bg-blue-500 selection:text-white h-[100dvh] max-h-[100dvh] overflow-hidden" style="height: 100dvh;">
@@ -196,7 +246,7 @@
         id="card-brochure"
         class="group card-shine relative overflow-hidden rounded-[16px] px-3.5 sm:px-4.5 h-[88px] sm:h-[98px] shrink-0 flex items-center justify-between shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-0.5 active:scale-[0.99] select-none cursor-pointer"
         style="background: linear-gradient(135deg, #f8719d 0%, #f05274 50%, #db3356 100%);"
-        aria-label="Company Brochure - Offers and Company Details. Opens brochure PDF in a new tab"
+        aria-label="Company Brochure - Offers and Company Details. Opens document preview modal with download option"
       >
         <!-- Fluid Waves Background Artwork -->
         <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
@@ -255,7 +305,7 @@
         id="card-presenting"
         class="group card-shine relative overflow-hidden rounded-[16px] px-3.5 sm:px-4.5 h-[88px] sm:h-[98px] shrink-0 flex items-center justify-between shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-0.5 active:scale-[0.99] select-none cursor-pointer"
         style="background: linear-gradient(135deg, #be7ef9 0%, #a251ea 50%, #852cd9 100%);"
-        aria-label="Presenting Xylozen - How we work & company profile. Opens Xylozen Technologies PDF in a new tab"
+        aria-label="Presenting Xylozen - How we work & company profile. Opens document preview modal with download option"
       >
         <!-- Fluid Waves Background Artwork -->
         <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
@@ -365,5 +415,224 @@
 
   </main>
 
+  <!-- ========================================== -->
+  <!-- MODAL: Document Viewer with Download Button -->
+  <!-- ========================================== -->
+  <dialog 
+    id="document-modal" 
+    closedby="any" 
+    aria-labelledby="modal-doc-title" 
+    aria-modal="true"
+    class="z-50"
+  >
+    <!-- Modal Inner Frame -->
+    <div class="flex flex-col h-full w-full bg-white text-slate-800 antialiased font-sans overflow-hidden">
+      
+      <!-- Top Modal Navigation / Action Bar -->
+      <header class="px-4 sm:px-5 py-3 bg-white/95 backdrop-blur border-b border-slate-200/80 flex items-center justify-between gap-3 shrink-0">
+        
+        <!-- Left: Document Title with Icon Badge -->
+        <div class="flex items-center gap-2.5 min-w-0 pr-2">
+          <div id="modal-doc-icon-badge" class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 border border-rose-100 transition-colors">
+            <!-- PDF Document Icon -->
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+          </div>
+          <h2 id="modal-doc-title" class="text-base sm:text-lg font-bold text-slate-900 leading-tight truncate">Company Brochure</h2>
+        </div>
+
+        <!-- Right: Primary Action Buttons (Download, Open Tab, Close) -->
+        <div class="flex items-center gap-2 shrink-0">
+          <!-- The Download Button -->
+          <a 
+            id="modal-download-btn" 
+            href="documents/brochure.pdf" 
+            download="Xylozen_Company_Brochure.pdf"
+            class="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 active:scale-[0.98] shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
+            aria-label="Download Document"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download</span>
+          </a>
+
+          <!-- Open in New Tab Button -->
+          <a 
+            id="modal-open-tab-btn" 
+            href="documents/brochure.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="hidden sm:inline-flex items-center justify-center w-9 h-9 rounded-xl text-slate-500 hover:text-slate-800 hover:bg-slate-100 active:scale-95 transition-colors border border-transparent hover:border-slate-200" 
+            title="Open in new window"
+            aria-label="Open document in new window"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+
+          <!-- Close Modal Button -->
+          <button 
+            type="button" 
+            id="modal-close-btn" 
+            class="inline-flex items-center justify-center w-9 h-9 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 active:scale-95 transition-colors border border-transparent hover:border-slate-200" 
+            aria-label="Close document modal"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+      </header>
+
+      <!-- Document Preview Body -->
+      <div class="relative flex-1 w-full bg-slate-100 flex flex-col overflow-hidden">
+        
+        <!-- Loading Spinner -->
+        <div id="modal-loading-indicator" class="absolute inset-0 z-0 flex flex-col items-center justify-center bg-slate-50 gap-3 text-slate-500 transition-opacity duration-300">
+          <div class="w-9 h-9 border-3 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+          <p class="text-xs font-medium text-slate-500 tracking-wide">Loading document preview...</p>
+        </div>
+
+        <!-- Iframe displaying PDF with native controls -->
+        <iframe 
+          id="modal-pdf-iframe" 
+          src="" 
+          class="relative z-10 w-full h-full border-0 bg-white" 
+          title="PDF Document Preview"
+        ></iframe>
+
+      </div>
+
+    </div>
+  </dialog>
+
+  <!-- Portal & Modal Logic -->
+  <script>
+    // Document definitions & metadata
+    const documentsData = {
+      brochure: {
+        title: 'Company Brochure',
+        filePath: 'documents/brochure.pdf',
+        downloadName: 'Xylozen_Company_Brochure.pdf',
+        iconBg: 'bg-rose-50 text-rose-600 border-rose-100',
+      },
+      xylozen: {
+        title: 'Presentating Xylozen',
+        filePath: 'documents/Xylozen%20Technologies.pdf',
+        downloadName: 'Xylozen_Technologies_Profile.pdf',
+        iconBg: 'bg-purple-50 text-purple-600 border-purple-100',
+      }
+    };
+
+    const docModal = document.getElementById('document-modal');
+    const modalPdfIframe = document.getElementById('modal-pdf-iframe');
+    const modalDocTitle = document.getElementById('modal-doc-title');
+    const modalDocIconBadge = document.getElementById('modal-doc-icon-badge');
+    const modalDownloadBtn = document.getElementById('modal-download-btn');
+    const modalOpenTabBtn = document.getElementById('modal-open-tab-btn');
+    const modalLoadingIndicator = document.getElementById('modal-loading-indicator');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+
+    function openDocumentModal(docKey) {
+      const doc = documentsData[docKey];
+      if (!doc) return;
+
+      modalDocTitle.textContent = doc.title;
+      modalDocIconBadge.className = `w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border transition-colors ${doc.iconBg}`;
+
+      // Update download link
+      modalDownloadBtn.href = doc.filePath;
+      modalDownloadBtn.setAttribute('download', doc.downloadName);
+
+      if (modalOpenTabBtn) {
+        modalOpenTabBtn.href = doc.filePath;
+      }
+
+      // Show spinner while iframe loads
+      modalLoadingIndicator.style.opacity = '1';
+      modalPdfIframe.onload = () => {
+        modalLoadingIndicator.style.opacity = '0';
+      };
+
+      // Set iframe src with pdf parameters
+      modalPdfIframe.src = doc.filePath + '#toolbar=1&navpanes=0';
+
+      // Open modal dialog if not already open
+      if (!docModal.open) {
+        docModal.showModal();
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeDocumentModal() {
+      if (docModal.open) {
+        docModal.close();
+      }
+    }
+
+    // Modal close event listener (fires on close() or ESC key)
+    docModal.addEventListener('close', () => {
+      // Clear iframe to prevent memory leak and background processing
+      modalPdfIframe.src = 'about:blank';
+      document.body.style.overflow = '';
+      if (window.location.hash) {
+        history.replaceState(null, '', window.location.pathname);
+      }
+    });
+
+    modalCloseBtn.addEventListener('click', closeDocumentModal);
+
+    // Light-dismiss backdrop click fallback
+    docModal.addEventListener('click', (event) => {
+      if (event.target !== docModal) return;
+      const rect = docModal.getBoundingClientRect();
+      const isInside = (
+        rect.top <= event.clientY &&
+        event.clientY <= rect.top + rect.height &&
+        rect.left <= event.clientX &&
+        event.clientX <= rect.left + rect.width
+      );
+      if (!isInside) {
+        closeDocumentModal();
+      }
+    });
+
+    // Portal Card Clicks (Card 3: brochure, Card 4: presenting/xylozen)
+    const cardBrochure = document.getElementById('card-brochure');
+    const cardPresenting = document.getElementById('card-presenting');
+
+    if (cardBrochure) {
+      cardBrochure.addEventListener('click', (e) => {
+        e.preventDefault();
+        openDocumentModal('brochure');
+      });
+    }
+
+    if (cardPresenting) {
+      cardPresenting.addEventListener('click', (e) => {
+        e.preventDefault();
+        openDocumentModal('xylozen');
+      });
+    }
+
+    // Hash check on initial page load (e.g. #brochure or #xylozen)
+    if (window.location.hash === '#brochure') {
+      openDocumentModal('brochure');
+    } else if (window.location.hash === '#xylozen' || window.location.hash === '#presenting') {
+      openDocumentModal('xylozen');
+    }
+  </script>
 </body>
 </html>

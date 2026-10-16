@@ -17,18 +17,23 @@ A modern, responsive link portal built with **HTML5** and **Tailwind CSS v3**, f
 |---|----------------------|------------------|----------------------|
 | **1** | 🌊 Sky Blue Gradient | **Dashboard**<br>_Employee Contract Details_ | Routes to [https://xylozentech.com](https://xylozentech.com) |
 | **2** | 🌅 Golden Orange Gradient | **Online Services**<br>_All Online Services Here_ | Routes to [https://xylozentech.com/services](https://xylozentech.com/services) |
-| **3** | 🎁 Coral Rose Gradient | **Offers**<br>_Ramadan Offers_ | Opens [brochure.pdf](file:///Users/abc/Desktop/Byte-Bandits/project_new/info/documents/brochure.pdf) directly in a new tab |
-| **4** | 💜 Violet Purple Gradient | **Loyalty**<br>_How do we are work_ | Opens [Xylozen Technologies.pdf](file:///Users/abc/Desktop/Byte-Bandits/project_new/info/documents/Xylozen%20Technologies.pdf) directly in a new tab |
+| **3** | 🎁 Coral Rose Gradient | **Company Brochure**<br>_Ramadan Offers & Brochure_ | Opens [brochure.pdf](file:///Users/abc/Desktop/Byte-Bandits/project_new/info/documents/brochure.pdf) in modal preview with download button |
+| **4** | 💜 Violet Purple Gradient | **Presentating Xylozen**<br>_How do we are work_ | Opens [Xylozen Technologies.pdf](file:///Users/abc/Desktop/Byte-Bandits/project_new/info/documents/Xylozen%20Technologies.pdf) in modal preview with download button |
 | **5** | 🌿 Turquoise Teal Gradient | **Contact - Us**<br>_Need Help? Chat with us_ | Routes to [https://xylozentech.com/contact](https://xylozentech.com/contact) |
 
 ---
 
-## 📄 PDF Linking
+## 📄 PDF Viewing & Download Modal
 
 The cards link directly to your documents:
 - Card 3: `documents/brochure.pdf`
 - Card 4: `documents/Xylozen%20Technologies.pdf`
-Opening in a new tab triggers the browser's native full-featured PDF viewer with built-in preview, zoom, search, print, and download capabilities.
+
+Clicking either card opens a clean, responsive **modal screen**:
+- **Inline PDF Preview**: Embedded document viewer with zoom and page controls.
+- **Direct Download Button**: Prominent download button to save the document immediately.
+- **External View**: Option to pop out and view the document in a full browser tab.
+- **Light Dismiss**: Dismiss by clicking outside the backdrop, pressing <kbd>Esc</kbd>, or clicking the close button.
 
 ---
 
