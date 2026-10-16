@@ -18,21 +18,21 @@ A modern, responsive link portal built with **HTML5** and **Tailwind CSS v3**, f
 | **1** | 🌊 Sky Blue Gradient | **Dashboard**<br>_Employee Contract Details_ | Routes to [https://xylozentech.com](https://xylozentech.com) |
 | **2** | 🌅 Golden Orange Gradient | **Online Services**<br>_All Online Services Here_ | Routes to [https://xylozentech.com/services](https://xylozentech.com/services) |
 | **3** | 🎁 Coral Rose Gradient | **Company Brochure**<br>_Ramadan Offers & Brochure_ | Opens [brochure.pdf](file:///Users/abc/Desktop/Byte-Bandits/project_new/info/documents/brochure.pdf) in modal preview with download button |
-| **4** | 💜 Violet Purple Gradient | **Presentating Xylozen**<br>_How do we are work_ | Opens [Xylozen Technologies.pdf](file:///Users/abc/Desktop/Byte-Bandits/project_new/info/documents/Xylozen%20Technologies.pdf) in modal preview with download button |
+| **4** | 💜 Violet Purple Gradient | **Presenting Xylozen**<br>_How we work_ | Opens [Xylozen Technologies.pdf](file:///Users/abc/Desktop/Byte-Bandits/project_new/info/documents/Xylozen%20Technologies.pdf) in modal with View & Download options |
 | **5** | 🌿 Turquoise Teal Gradient | **Contact - Us**<br>_Need Help? Chat with us_ | Routes to [https://xylozentech.com/contact](https://xylozentech.com/contact) |
 
 ---
 
-## 📄 PDF Viewing & Download Modal
+## 📄 Document Action Modal Popup
 
 The cards link directly to your documents:
 - Card 3: `documents/brochure.pdf`
 - Card 4: `documents/Xylozen%20Technologies.pdf`
 
-Clicking either card opens a clean, responsive **modal screen**:
-- **Uncompromised Full Quality**: Real-time vector rendering at up to 300 DPI with zero compression or quality loss.
-- **View Option Button**: Instantly open the original, full-resolution document in the browser's native viewer.
-- **Download Option Button**: Direct download to save the original file to your device.
+Clicking either card opens a focused, lightweight **modal popup**:
+- **View Document Button**: Opens the original, full-quality uncompressed document directly in the browser's native viewer.
+- **Download Document Button**: Triggers immediate download of the original document.
+- **No Embedded PDF Preview**: Avoids heavy rendering lag or memory bloat, opening instantly across all devices.
 - **Light Dismiss**: Dismiss by clicking outside the backdrop, pressing <kbd>Esc</kbd>, or clicking the close button.
 
 ---
